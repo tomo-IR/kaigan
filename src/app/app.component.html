@@ -11,6 +11,26 @@
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker [startAt]="today" #picker></mat-datepicker> </mat-form-field
 ><br />
+
+<mat-form-field appearance="fill">
+  <mat-label>場所</mat-label>
+  <mat-select [formControl]="selectedPlace" multiple (valueChange)="cons()">
+    <mat-select-trigger>
+      {{selectedPlace.value?.[0] || ''}}
+      <span
+        *ngIf="(selectedPlace.value?.length || 0) > 1"
+        class="example-additional-selection"
+      >
+        (+{{ (selectedPlace.value?.length || 0) - 1 }}
+        {{ selectedPlace.value?.length === 2 ? "other" : "others" }})
+      </span>
+    </mat-select-trigger>
+    <mat-option *ngFor="let place of placeList" [value]="place">{{
+      place
+    }}</mat-option>
+  </mat-select> </mat-form-field
+><br />
+
 <mat-form-field appearance="fill">
   <mat-label>クラブ</mat-label>
   <mat-select [formControl]="selectedClubs" multiple (valueChange)="cons()">
@@ -65,5 +85,16 @@
     <mat-option *ngFor="let action of actionList" [value]="action">{{
       action
     }}</mat-option>
-  </mat-select>
-</mat-form-field>
+  </mat-select> </mat-form-field
+><br />
+
+<mat-form-field appearance="fill">
+  <mat-label>開眼詳細</mat-label>
+  <textarea
+    matInput
+    [formControl]="textArea"
+    (change)="cons()"
+  ></textarea></mat-form-field
+><br />
+
+<button mat-raised-button color="accent">登録する</button>
