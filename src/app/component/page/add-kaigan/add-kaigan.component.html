@@ -1,0 +1,111 @@
+<h1>KAIGAN</h1>
+<form [formGroup]="fg">
+  <mat-form-field appearance="fill">
+    <mat-label>開眼した日</mat-label>
+    <input
+      matInput
+      [matDatepicker]="picker"
+      (dateChange)="cons()"
+      formControlName="selectedDate"
+    />
+    <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker> </mat-form-field
+  ><br />
+
+  <mat-form-field appearance="fill">
+    <mat-label>場所</mat-label>
+    <mat-select formControlName="selectedPlace" multiple (valueChange)="cons()">
+      <mat-select-trigger>
+        {{ fg.value.selectedPlace[0] || "" }}
+        <span
+          *ngIf="(fg.value.selectedPlace.length || 0) > 1"
+          class="example-additional-selection"
+        >
+          (+{{ (fg.value.selectedPlace.length || 0) - 1 }}
+          {{ fg.value.selectedPlace.length === 2 ? "other" : "others" }})
+        </span>
+      </mat-select-trigger>
+      <mat-option *ngFor="let place of placeList" [value]="place">{{
+        place
+      }}</mat-option>
+    </mat-select> </mat-form-field
+  ><br />
+
+  <mat-form-field appearance="fill">
+    <mat-label>クラブ</mat-label>
+    <mat-select formControlName="selectedClubs" multiple (valueChange)="cons()">
+      <mat-select-trigger>
+        {{ fg.value.selectedClubs[0] || "" }}
+        <span
+          *ngIf="(fg.value.selectedClubs.length || 0) > 1"
+          class="example-additional-selection"
+        >
+          (+{{ (fg.value.selectedClubs.length || 0) - 1 }}
+          {{ fg.value.selectedClubs.length === 2 ? "other" : "others" }})
+        </span>
+      </mat-select-trigger>
+      <mat-option *ngFor="let club of clubList" [value]="club">{{
+        club
+      }}</mat-option>
+    </mat-select> </mat-form-field
+  ><br />
+
+  <mat-form-field appearance="fill">
+    <mat-label>体の部位</mat-label>
+    <mat-select
+      formControlName="selectedBodyParts"
+      multiple
+      (valueChange)="cons()"
+    >
+      <mat-select-trigger>
+        {{ fg.value.selectedBodyParts[0] || "" }}
+        <span
+          *ngIf="(fg.value.selectedBodyParts.length || 0) > 1"
+          class="example-additional-selection"
+        >
+          (+{{ (fg.value.selectedBodyParts.length || 0) - 1 }}
+          {{ fg.value.selectedBodyParts.length === 2 ? "other" : "others" }})
+        </span>
+      </mat-select-trigger>
+      <mat-option *ngFor="let bodyParts of bodyPartsList" [value]="bodyParts">{{
+        bodyParts
+      }}</mat-option>
+    </mat-select> </mat-form-field
+  ><br />
+
+  <mat-form-field appearance="fill">
+    <mat-label>ボディアクション</mat-label>
+    <mat-select
+      formControlName="selectedActions"
+      multiple
+      (valueChange)="cons()"
+    >
+      <mat-select-trigger>
+        {{ fg.value.selectedActions[0] || "" }}
+        <span
+          *ngIf="(fg.value.selectedActions.length || 0) > 1"
+          class="example-additional-selection"
+        >
+          (+{{ (fg.value.selectedActions.length || 0) - 1 }}
+          {{ fg.value.selectedActions.length === 2 ? "other" : "others" }})
+        </span>
+      </mat-select-trigger>
+      <mat-option *ngFor="let action of actionList" [value]="action">{{
+        action
+      }}</mat-option>
+    </mat-select> </mat-form-field
+  ><br />
+
+  <mat-form-field appearance="fill">
+    <mat-label>開眼詳細</mat-label>
+    <textarea
+      matInput
+      formControlName="textArea"
+      (change)="cons()"
+    ></textarea></mat-form-field
+  ><br />
+
+  <button mat-raised-button color="accent">登録する</button>
+  <p>{{ fg.value.selectedActions.value }}</p>
+</form>
