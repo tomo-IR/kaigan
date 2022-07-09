@@ -99,13 +99,22 @@
 
   <mat-form-field appearance="fill">
     <mat-label>開眼詳細</mat-label>
-    <textarea
-      matInput
-      formControlName="textArea"
-      (change)="cons()"
-    ></textarea></mat-form-field
-  ><br />
+    <textarea matInput formControlName="detail" (change)="cons()"></textarea>
+  </mat-form-field>
+  <p
+    *ngIf="
+      fg?.controls['detail'].errors !== null &&
+      fg?.controls['detail'].errors['required'] !== null &&
+      fg?.touched
+    "
+    class="red"
+  >
+    詳細は必須項目です
+  </p>
+  <br />
 
-  <button mat-raised-button color="accent">登録する</button>
-  <p>{{ fg.value.selectedActions.value }}</p>
+  <button mat-raised-button color="accent" [disabled]="fg.invalid">
+    登録する</button
+  ><br />
+  <button mat-raised-button color="accent" (click)="cons()">view</button>
 </form>

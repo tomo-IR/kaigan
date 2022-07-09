@@ -12,15 +12,15 @@ import {
   styleUrls: ['./add-kaigan.component.scss'],
 })
 export class AddKaiganComponent implements OnInit {
-  fg: FormGroup | undefined;
+  fg: FormGroup;
   constructor(private fb: FormBuilder) {
     this.fg = this.fb.group({
       selectedDate: new FormControl(new Date()),
       selectedPlace: new FormControl([]),
-      selectedClubs: new FormControl([], [Validators.required]),
+      selectedClubs: new FormControl([]),
       selectedActions: new FormControl([]),
       selectedBodyParts: new FormControl([]),
-      textArea: new FormControl(''),
+      detail: new FormControl('', [Validators.required]),
     });
   }
 
@@ -36,6 +36,7 @@ export class AddKaiganComponent implements OnInit {
     'その他クラブ',
   ];
   actionList: string[] = [
+    'アクション問わず',
     'アドレス',
     'テイクバック',
     'トップ',
@@ -46,6 +47,7 @@ export class AddKaiganComponent implements OnInit {
     'その他のアクション',
   ];
   bodyPartsList: string[] = [
+    '部位問わず',
     '頭',
     '手',
     '腕',
@@ -60,10 +62,10 @@ export class AddKaiganComponent implements OnInit {
     'その他の部位',
   ];
   cons() {
-    console.log(this.fg.value.selectedActions);
-    console.log(this.fg.value.selectedBodyParts);
-    console.log(this.fg.value.selectedClubs);
-    console.log(this.fg.value.selectedDate);
-    console.log(this.fg.value.selectedPlace);
+    console.log(this.fg);
+  }
+
+  canSubmit() {
+    return this.fg.invalid;
   }
 }
