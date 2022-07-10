@@ -12,8 +12,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { AddKaiganComponent } from './component/page/add-kaigan/add-kaigan.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from './component/dialog/confirm-dialog/confirm-dialog.component';
 @NgModule({
-  declarations: [AppComponent, AddKaiganComponent],
+  declarations: [AppComponent, AddKaiganComponent, ConfirmDialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -26,6 +28,7 @@ import { AddKaiganComponent } from './component/page/add-kaigan/add-kaigan.compo
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

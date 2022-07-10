@@ -5,6 +5,7 @@ import {
   FormBuilder,
   FormGroup,
 } from '@angular/forms';
+import { DialogService } from 'src/app/service/dialog.service';
 
 @Component({
   selector: 'app-add-kaigan',
@@ -13,7 +14,7 @@ import {
 })
 export class AddKaiganComponent implements OnInit {
   fg: FormGroup;
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private dialog: DialogService) {
     this.fg = this.fb.group({
       selectedDate: new FormControl(new Date()),
       selectedPlace: new FormControl([]),
@@ -67,5 +68,8 @@ export class AddKaiganComponent implements OnInit {
 
   canSubmit() {
     return this.fg.invalid;
+  }
+  regest(message: string) {
+    this.dialog.showDialog(message);
   }
 }

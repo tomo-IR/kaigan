@@ -113,7 +113,12 @@
   </p>
   <br />
 
-  <button mat-raised-button color="accent" [disabled]="fg.invalid">
+  <button
+    mat-raised-button
+    color="accent"
+    [disabled]="fg.invalid"
+    (click)="regest(fg.value.detail)"
+  >
     登録する</button
   ><br />
   <button mat-raised-button color="accent" (click)="cons()">view</button>
