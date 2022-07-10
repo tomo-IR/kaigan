@@ -12,16 +12,20 @@ import { ConfirmDialogComponent } from '../component/dialog/confirm-dialog/confi
 export class DialogService {
   constructor(private dialog: MatDialog) {}
 
-  message: string;
-  setMeesage(message: string) {
-    this.message = message;
+  formData: any;
+  setFormData(formData: any) {
+    this.formData = formData;
   }
-  getMeesage() {
-    return this.message;
+  getFormData() {
+    return this.formData;
   }
 
-  public showDialog(message: string) {
-    this.message = message;
+  public showDialog(formData: any) {
+    this.formData = formData;
     return this.dialog.open(ConfirmDialogComponent);
+  }
+
+  public closeDialog() {
+    return this.dialog.closeAll();
   }
 }

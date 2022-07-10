@@ -104,12 +104,22 @@
   <p
     *ngIf="
       fg?.controls['detail'].errors !== null &&
-      fg?.controls['detail'].errors['required'] !== null &&
+      fg?.controls['detail'].errors['required'] &&
       fg?.touched
     "
     class="red"
   >
     詳細は必須項目です
+  </p>
+  <p
+    *ngIf="
+      fg?.controls['detail'].errors !== null &&
+      fg?.controls['detail'].errors['maxlength'] &&
+      fg?.touched
+    "
+    class="red"
+  >
+    400文字以内で入力してください。
   </p>
   <br />
 
@@ -117,7 +127,7 @@
     mat-raised-button
     color="accent"
     [disabled]="fg.invalid"
-    (click)="regest(fg.value.detail)"
+    (click)="regist(fg.value)"
   >
     登録する</button
   ><br />

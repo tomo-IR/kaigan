@@ -1,4 +1,20 @@
 <h1>この内容で登録します。よろしいですか？</h1>
-<p>{{ message }}</p>
+<li>開眼した日</li>
+<p>
+  {{ formData.selectedDate.getFullYear() }}年
+  {{ formData.selectedDate.getMonth() + 1 }}月
+  {{ formData.selectedDate.getDate() }}日
+</p>
+<li>場所</li>
+<p>{{ formData.selectedPlace }}</p>
+<li>クラブ</li>
+<p>{{ formData.selectedClubs }}</p>
+<li>体の部位</li>
+<p>{{ formData.selectedBodyParts }}</p>
+<li>ボディアクション</li>
+<p>{{ formData.selectedActions }}</p>
+<li>開眼詳細</li>
+<p>{{ formData.detail }}</p>
+
 <button mat-raised-button color="primary">OK</button>
-<button mat-raised-button color="warn">CANCEL</button>
+<button mat-raised-button color="warn" (click)="close()">CANCEL</button>

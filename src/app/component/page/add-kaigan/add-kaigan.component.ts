@@ -21,7 +21,10 @@ export class AddKaiganComponent implements OnInit {
       selectedClubs: new FormControl([]),
       selectedActions: new FormControl([]),
       selectedBodyParts: new FormControl([]),
-      detail: new FormControl('', [Validators.required]),
+      detail: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(400),
+      ]),
     });
   }
 
@@ -69,7 +72,7 @@ export class AddKaiganComponent implements OnInit {
   canSubmit() {
     return this.fg.invalid;
   }
-  regest(message: string) {
-    this.dialog.showDialog(message);
+  regist(formDate: any) {
+    this.dialog.showDialog(formDate);
   }
 }

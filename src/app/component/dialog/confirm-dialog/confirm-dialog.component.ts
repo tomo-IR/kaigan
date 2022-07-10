@@ -8,9 +8,12 @@ import { DialogService } from 'src/app/service/dialog.service';
 })
 export class ConfirmDialogComponent implements OnInit {
   constructor(private dialog: DialogService) {}
-  message: string = '';
+  formData: any;
 
   ngOnInit(): void {
-    this.message = this.dialog.getMeesage();
+    this.formData = this.dialog.getFormData();
+  }
+  close() {
+    this.dialog.closeDialog();
   }
 }
