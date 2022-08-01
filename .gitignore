@@ -1,42 +1,42 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # Compiled output
-/server/dist
-/server/tmp
-/server/out-tsc
-/server/bazel-out
+/frontend/server/dist
+/frontend/server/tmp
+/frontend/server/out-tsc
+/frontend/server/bazel-out
 
 # Node
-/server/node_modules
-/server/npm-debug.log
-/server/yarn-error.log
+/frontend/server/node_modules
+/frontend/server/npm-debug.log
+/frontend/server/yarn-error.log
 
 # IDEs and editors
-/server/.idea/
-/server/.project
-/server/.classpath
-/server/.c9/
-/server/*.launch
-/server/.settings/
-/server/*.sublime-workspace
+/frontend/server/.idea/
+/frontend/server/.project
+/frontend/server/.classpath
+/frontend/server/.c9/
+/frontend/server/*.launch
+/frontend/server/.settings/
+/frontend/server/*.sublime-workspace
 
 # Visual Studio Code
-/server/.vscode/*
-/server/!.vscode/settings.json
-/server/!.vscode/tasks.json
-/server/!.vscode/launch.json
-/server/!.vscode/extensions.json
-/server/.history/*
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
 
 # Miscellaneous
-/server/.angular/cache
-/server/.sass-cache/
-/server/connect.lock
-/server/coverage
-/server/libpeerconnection.log
-/server/testem.log
-/server/typings
+/frontend/server/.angular/cache
+/frontend/server/.sass-cache/
+/frontend/server/connect.lock
+/frontend/server/coverage
+/frontend/server/libpeerconnection.log
+/frontend/server/testem.log
+/frontend/server/typings
 
 # System files
-/server/.DS_Store
-/server/Thumbs.db
+/frontend/server/.DS_Store
+/frontend/server/Thumbs.db
