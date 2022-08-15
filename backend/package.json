@@ -1,0 +1,20 @@
+{
+  "name": "kaigan_backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "typeorm:entity:create": "npx ts-node ./node_modules/typeorm/cli entity:create -d src/entities -n",
+    "typeorm:migration:generate": "npx ts-node ./node_modules/typeorm/cli migration:generate -d src/migrations -n",
+    "typeorm:migration:run": "npx ts-node ./node_modules/typeorm/cli migration:run",
+    "typeorm:schema:sync": "npx ts-node ./node_modules/typeorm/cli schema:sync"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "ts-node": "^10.9.1",
+    "typeorm": "^0.2.44",
+    "typescript": "^4.7.4"
+  }
+}

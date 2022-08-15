@@ -8,10 +8,18 @@ services:
     volumes:
       - "./frontend/server:/projects"
     tty: true
-  backend:
-    build: ./backend/docker/node
-    ports:
-      - "3000:3000"
+  db:
+    image: mysql:5.7
+    container_name: docker
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: kaigan_db
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: password
+      TZ: "Asia/Tokyo"
     volumes:
-      - "./backend/"
-    tty: true
+      - ./kaigan/db/data:/var/lib/mysql
+      - ./kaigan/db/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./kaigan/db/sql:/docker-entrypoint-initdb.d
+    ports:
+      - 4306:3306

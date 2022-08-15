@@ -40,3 +40,7 @@
 # System files
 /frontend/server/.DS_Store
 /frontend/server/Thumbs.db
+
+# DB
+/docker/db
+/kaigan/db

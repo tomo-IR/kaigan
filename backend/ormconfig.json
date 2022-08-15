@@ -1,0 +1,11 @@
+{
+  "type": "mysql",
+  "host": "localhost",
+  "port": 4306,
+  "username": "admin",
+  "password": "password",
+  "database": "kaigan_db",
+  "entities": ["src/entities/*.entity{.ts,.js}"],
+  "migrations": ["src/migrations/*{.ts,.js}"],
+  "synchronize": false
+}
