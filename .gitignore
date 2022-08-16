@@ -5,6 +5,7 @@
 /frontend/server/tmp
 /frontend/server/out-tsc
 /frontend/server/bazel-out
+/backend/dist
 
 # Node
 /frontend/server/node_modules
